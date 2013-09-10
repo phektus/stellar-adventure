@@ -4,12 +4,13 @@ var stage,
     img;
 
 function init() {
-    canvas = document.createElement('canvas');
-    canvas.width = 500;
-    canvas.height = 250;
-    document.body.appendChild(canvas);   
-
+    var background;
+    canvas = document.getElementById('myGame');
     stage = new createjs.Stage(canvas);
+
+    background = new createjs.Shape();
+    background.graphics.beginFill("#000").drawRect(0, 0, canvas.width, canvas.height);
+    stage.addChild(background);
 
     img = new Image();
     img.onload = function() {
